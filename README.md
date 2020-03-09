@@ -4,7 +4,9 @@ Development test for Alliants Junior Software Engineer position. A simple web ap
 
 ---
 
-<img src="/readme/screenshot.png" alt="Project Screenshot" width="600" height="400" />
+<p align="center">
+  <img src="/readme/screenshot.png" alt="Project Screenshot" width="600" height="400" />
+</p>
 
 ## Resources
 
