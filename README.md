@@ -4,7 +4,7 @@ Development test for Alliants Junior Software Engineer position. A simple web ap
 
 ---
 
-![readme-one](readme/screenshot.png){ width=50% }
+![readme-one](readme/screenshot.png)
 
 ## Resources
 
