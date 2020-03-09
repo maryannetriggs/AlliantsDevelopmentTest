@@ -30,7 +30,8 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: 'src/index.html',
       filename: 'index.html',
-      inject: 'body'
+      inject: 'body',
+      favicon: 'favicon.jpg'
     }),
     new webpack.EnvironmentPlugin(['YOUTUBE_API_KEY', 'FLICKR_API_KEY'])
   ]

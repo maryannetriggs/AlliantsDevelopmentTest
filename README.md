@@ -34,6 +34,22 @@ Use the clone button to download the source code. In your terminal enter the fol
 ### To install all the packages listed in the package.json file
 $ yarn add
 
+### Set your own API key environment variables
+
+Either
+
+```bash
+export YOUTUBE_API_KEY=YOUR_API_KEY
+export FLICKR_API_KEY=YOUR_API_KEY
+```
+
+Or create a `.env` file and add your API keys in the format below
+
+```bash
+YOUTUBE_API_KEY=YOUR_API_KEY
+FLICKR_API_KEY=YOUR_API_KEY
+```
+
 ### Run the app on your localhost
 $ yarn serve
 
@@ -58,6 +74,7 @@ The key learning points and considerations associated with this project were:
 * Using environment variables to keep API keys private
 * Using the Express web framework to create a proxy server to deal with CORS errors
 * Code clarity and matching the requirement of the brief
+* Adding a favicon
 
 
 ## Future Improvements

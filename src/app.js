@@ -70,7 +70,7 @@ class App extends React.Component {
           <iframe  width="320" height="240" allowFullScreen controls src={`https://www.youtube.com/embed/${video}`}>Your browser does not support this video type</iframe>
         </section>
 
-        {this.state.photos ?
+        {photos ?
           <section className="photo-wrapper">
             {photos.slice(0, 3).map(photo => (
               <img key={photo.id} src={`https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`} alt={`${search}images`}></img>
