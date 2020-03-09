@@ -4,6 +4,7 @@ import axios from 'axios'
 
 import './style.scss'
 
+
 class App extends React.Component {
   constructor() {
     super()
@@ -20,23 +21,19 @@ class App extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
+  // Settting user search entry into state each time it's changed
   handleChange(e) {
     this.setState({ search: e.target.value })
   }
 
+  // Prevent page reload and runs api request functions on search submit
   handleSubmit(e) {
     e.preventDefault()
     this.getPhotos()
     this.getVideo()
   }
 
-  getVideo() {
-    const youtubeKey = process.env.YOUTUBE_API_KEY
-    axios.get(`https://cors-anywhere.herokuapp.com/https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=1&q=${this.state.search}&key=${youtubeKey}`)
-      .then(res => this.setState({ video: res.data.items[0].id.videoId }))
-      .catch(err => console.log(err))
-  }
-
+  // Sends API request to Flickr returning an array of photos matching user search request
   getPhotos() {
     const flickrKey = process.env.FLICKR_API_KEY
     axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${flickrKey}&tags=${this.state.search}&format=json&nojsoncallback=1`)
@@ -44,11 +41,19 @@ class App extends React.Component {
       .catch(err => console.log(err))
   }
 
+  // Sends API request to YouTube returning one video matching user search request
+  getVideo() {
+    const youtubeKey = process.env.YOUTUBE_API_KEY
+    axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=1&q=${this.state.search}&key=${youtubeKey}`)
+      .then(res => this.setState({ video: res.data.items[0].id.videoId }))
+      .catch(err => console.log(err))
+  }
+
   render() {
     const { photos, video, search } = this.state
-    console.log(this.state)
     return (
       <div className="site-wrapper">
+
         <section className="">
           <h1 className="title is-1">Search yourself happy!</h1>
           <form onSubmit={this.handleSubmit}>
@@ -74,6 +79,7 @@ class App extends React.Component {
           :
           <h3 className="subtitle is-3">Your search images will appear here...</h3>
         }
+
       </div>
     )
   }
