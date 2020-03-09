@@ -32,8 +32,12 @@ class App extends React.Component {
 
   getVideo() {
     const youtubeKey = process.env.YOUTUBE_API_KEY
-    axios.get(`https://cors-anywhere.herokuapp.com/https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=1&q=${this.state.search}&key=${youtubeKey}`)
-      .then(res => console.log(res))
+    axios.get(`https://cors-anywhere.herokuapp.com/https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=1&q=${this.state.search}&key=${youtubeKey}`, {
+      headers: {
+        Accept: 'application/json'
+      }
+    })
+      .then(res => this.setState({ video: res.data.items[0].id.videoId }))
       .catch(err => console.log(err))
   }
 
@@ -46,8 +50,7 @@ class App extends React.Component {
   }
 
   render() {
-    // if (!this.state.photo) return null
-    const { photos } = this.state
+    const { photos, video } = this.state
     console.log(this.state)
     return (
       <>
@@ -59,6 +62,9 @@ class App extends React.Component {
           </label>
           <input type="submit" value="Submit" />
         </form>
+
+        <iframe width="320" height="240" controls src={`https://www.youtube.com/embed/${video}`}/>
+
         {this.state.photos ?
           <div>
             {photos.slice(0, 3).map(photo => (
