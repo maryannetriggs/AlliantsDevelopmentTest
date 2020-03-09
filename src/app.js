@@ -52,30 +52,28 @@ class App extends React.Component {
         <section className="">
           <h1 className="title is-1">Search yourself happy!</h1>
           <form onSubmit={this.handleSubmit}>
-            <label>
+            <label className="subtitle is-3">
             What do you want to see? 
               <br/>
-              <input placeholder="Type Here" type="text" value={this.state.search} onChange={this.handleChange} />
+              <input className="search-box" placeholder="Type Here" type="text" value={this.state.search} onChange={this.handleChange}/>
             </label>
-            <input type="submit" value="Search!" />
+            <input className="search-button" type="submit" value="Search!"/>
           </form>
         </section>
         
         <section className="video-wrapper">
-          <iframe width="640" height="480" controls src={`https://www.youtube.com/embed/${video}`}>Your browser does not support this video type</iframe>
+          <iframe  width="320" height="240" allowFullScreen controls src={`https://www.youtube.com/embed/${video}`}>Your browser does not support this video type</iframe>
         </section>
 
-        <section className="photo-wrapper">
-          {this.state.photos ?
-            <div>
-              {photos.slice(0, 3).map(photo => (
-                <img key={photo.id} src={`https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`} alt={`${search}images`} height="500" width="500"></img>
-              ))}
-            </div>
-            :
-            <h3 className="title is-3">Your search images will appear here...</h3>
-          }
-        </section>
+        {this.state.photos ?
+          <section className="photo-wrapper">
+            {photos.slice(0, 3).map(photo => (
+              <img key={photo.id} src={`https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`} alt={`${search}images`}></img>
+            ))}
+          </section>
+          :
+          <h3 className="subtitle is-3">Your search images will appear here...</h3>
+        }
       </div>
     )
   }
