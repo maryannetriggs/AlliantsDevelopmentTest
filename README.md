@@ -2,7 +2,9 @@
 
 Development test for Alliants Junior Software Engineer position. A simple web application that integrates the YouTube and Flickr piblic API's to serve one YouTube video and up to three Flickr images based on a user inputted search criteria.
 
-![readme-one](readme/screenshot.png)
+---
+
+![readme-one](readme/screenshot.png){ width=50% }
 
 ## Resources
 
