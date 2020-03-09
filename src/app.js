@@ -13,7 +13,11 @@ class App extends React.Component {
       photo: null
     }
 
-    // this.handleShuffle = this.handleShuffle.bind(this)
+    this.getPhoto = this.getPhoto.bind(this)
+  }
+
+  componentDidMount() {
+    this.getPhoto()
   }
 
   // const youtubeKey = process.env.YOUTUBE_API_KEY
@@ -24,16 +28,18 @@ class App extends React.Component {
   getPhoto() {
   // const flickrKey = process.env.FLICKR_API_KEY
     axios.get('')
-      .then(res => console.log(res.data.photos.photo))
+      .then(res => this.setState({ photo: res.data.photos.photo[0] }))
       .catch(err => console.log(err))
   }
 
   render() {
-    // const { video, photo } = this.state
-    console.log(this.state)
+    if (!this.state.photo) return null
+    const { photo } = this.state
+    console.log(photo)
     return (
     <>
       <h1>Search Return</h1>
+      <img src={`https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`} alt="REMEMBER" height="500" width="500"></img>
     </>
     )
   }
