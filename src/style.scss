@@ -14,7 +14,7 @@ body {
 }
 
 .search-box, .search-button {
-  border-radius: 6px;
+  border-radius: 8%;
   margin: 1% 1% 2%;
 }
 
@@ -41,7 +41,7 @@ body {
     }
 }
 
-// Changing layout of photos for smaller devices
+// Changing layout of photos from horizontal to vertical for viewing on smaller devices
 @media only screen and (max-width: 768px) {
   .photo-wrapper {
     flex-direction: column;

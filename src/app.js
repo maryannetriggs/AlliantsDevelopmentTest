@@ -33,7 +33,7 @@ class App extends React.Component {
     this.getVideo()
   }
 
-  // Sends API request to Flickr returning an array of photos matching user search request
+  // Sends API request to Flickr returning an array of photos matching user search request and setting them into state
   getPhotos() {
     const flickrKey = process.env.FLICKR_API_KEY
     axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${flickrKey}&tags=${this.state.search}&format=json&nojsoncallback=1`)
@@ -41,7 +41,7 @@ class App extends React.Component {
       .catch(err => console.log(err))
   }
 
-  // Sends API request to YouTube returning one video matching user search request
+  // Sends API request to YouTube returning one video matching user search request and sets it into state
   getVideo() {
     const youtubeKey = process.env.YOUTUBE_API_KEY
     axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=1&q=${this.state.search}&key=${youtubeKey}`)

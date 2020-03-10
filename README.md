@@ -1,6 +1,6 @@
 # Alliants Development Test
 
-Development test for Alliants Junior Software Engineer position. A simple web application that integrates the YouTube and Flickr piblic API's to serve one YouTube video and up to three Flickr images based on a user inputted search criteria.
+Development test for Alliants Junior Software Engineer position. A simple web application that integrates the YouTube and Flickr public API's to serve one YouTube video and up to three Flickr images based on a user inputted search criteria.
 
 ---
 
@@ -32,11 +32,14 @@ Development test for Alliants Junior Software Engineer position. A simple web ap
 Use the clone button to download the source code. In your terminal enter the following commands:
 
 ### To install all the packages listed in the package.json file
-$ yarn add
+
+```bash
+yarn add
+```
 
 ### Set your own API key environment variables
 
-Either
+Either enter the following commands into the terminal
 
 ```bash
 export YOUTUBE_API_KEY=YOUR_API_KEY
@@ -51,7 +54,10 @@ FLICKR_API_KEY=YOUR_API_KEY
 ```
 
 ### Run the app on your localhost
-$ yarn serve
+
+```bash
+yarn serve
+```
 
 ---
 
@@ -73,7 +79,7 @@ The key learning points and considerations associated with this project were:
 * The importance of accessibility (semantic HTML and colour scheme)
 * Using environment variables to keep API keys private
 * Using the Express web framework to create a proxy server to deal with CORS errors
-* Code clarity and matching the requirement of the brief
+* Code clarity and matching requirement of the brief
 * Adding a favicon
 
 
@@ -82,8 +88,9 @@ The key learning points and considerations associated with this project were:
 Advancements that could be made in the future to improve this website include:
 
 * Addition of a slick design/styling
-* Age restriction or limitation of videos/images 
-* Ability to submit API with multiple user search criteria inputs
+* Age restriction or limitation of videos/images to ensure only suitable content is viewable
+* Ability to submit API's with multiple user search criteria inputs
 * Enhanced error handling
+* Online deployment
 
 ## Author - Mary-Anne Triggs
